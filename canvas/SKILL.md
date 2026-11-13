@@ -1,6 +1,6 @@
 ---
 name: "canvas"
-description: "Use this skill when the user likely wants a separately rendered artifact instead of a chat reply, explicitly mentions a canvas, wants to view or edit a supported existing artifact, asks for a code example, create/build an app or other artifact work with a compatible Canvas type. Do not use Canvas for a Personal Knowledge request unless the user separately asks for a Canvas. A Canvas is a folder with a special file structure, not a tool. Common canvas outputs include documents, code files, React UIs, HTML pages, slides, diagrams, SVGs, standalone tables, spreadsheet/XLSX workbooks. Common trigger verbs include make, create, write, rewrite, edit, draft, compose, build, code, generate, prepare, and document. Do not use a Canvas when the most appropriate answer format is a list, a list of action items, or a list of sequential steps: answer it in chat as a plain Markdown list, or, when the user explicitly asks for a checklist or to-do list or wants to tick items off, load the `rich-ui` skill and render the inline `Checklist` component. Always read this skill before producing code examples or app-like artifacts so you can decide whether to use canvas, whether to create or update one, which mode to choose, and which optional file to read next. Also read this file before making any edits to files under /home/user/canvases/. For existing Canvas edits, prefer targeted `edit` calls over full-file `write_file` rewrites."
+description: "Use this skill when the user likely wants a separately rendered artifact instead of a chat reply, explicitly mentions a canvas, wants to view or edit a supported existing artifact, asks for a code example, create/build an app or other artifact work with a compatible Canvas type. Do not use Canvas for a Personal Knowledge request unless the user separately asks for a Canvas. A Canvas is a folder with a special file structure, not a tool. Common canvas outputs include documents, code files, React UIs, HTML pages, slides, diagrams, SVGs, standalone editable tables with at most 50 data rows, spreadsheet/XLSX workbooks. Common trigger verbs include make, create, write, rewrite, edit, draft, compose, build, code, generate, prepare, and document. Do not use a Canvas when the most appropriate answer format is a list, a list of action items, or a list of sequential steps: answer it in chat as a plain Markdown list, or, when the user explicitly asks for a checklist or to-do list or wants to tick items off, load the `rich-ui` skill and render the inline `Checklist` component. Always read this skill before producing code examples or app-like artifacts so you can decide whether to use canvas, whether to create or update one, which mode to choose, and which optional file to read next. Also read this file before making any edits to files under /home/user/canvases/. For existing Canvas edits, prefer targeted `edit` calls over full-file `write_file` rewrites."
 ---
 # Canvas Files
 
@@ -17,7 +17,7 @@ Use a Canvas when the user wants a deliverable they will likely inspect, edit, p
 - React UIs or HTML pages
 - Slides
 - Mermaid diagrams or SVGs
-- Standalone tables
+- Standalone editable tables with at most 50 data rows
 - Spreadsheet/XLSX workbooks
 
 When image generation is available, use it instead of a Canvas when the user wants a picture: a drawing, painting, illustration, photo-like scene, or a graphic meant to be used as a picture, such as a logo, poster, card, sticker, or cover, or wants an uploaded image changed. Draw it as an SVG or HTML Canvas only when the user asks for SVG, vector, or code output, or an editable or interactive layout. Charts, diagrams, slide decks, and tables stay in Canvas.
@@ -30,11 +30,11 @@ The user cannot browse your filesystem by default. Most Canvas types contain con
 
 When an existing XLSX file is already available, place a copy unchanged at the entry point required by its Canvas type and add only the Canvas metadata. Never move the source file or manually reproduce it by reading and rewriting its contents. For a new file-backed deliverable, write the final file directly to its Canvas entry point when practical. Reuse its existing Canvas if it already has one. Surfacing an unchanged file does not require an authoring workflow.
 
-If no file-backed Canvas type matches the file extension, explain that the format cannot currently be surfaced in Canvas. Do not invent a download path or silently convert or rebuild the file as a different Canvas type.
+If no file-backed Canvas type matches the file extension, explain that the format cannot be surfaced in Canvas, then use the shared Artifact delivery route. Do not silently convert or rebuild the file as a different Canvas type.
 
 ## Download Or Export
 
-Use or point to the Canvas export/download control when it meets the request.
+Use or point to the Canvas export/download control when it meets the request. Do not publish the same deliverable as an Artifact too. For a requested format the Canvas export cannot produce, or a different file whose extension has no file-backed Canvas type, follow the shared delivery instructions and use Artifacts.
 
 Writing a file to an arbitrary filesystem path does not create a user-visible download. Do not invent delivery paths such as `/home/user/downloads` or `/home/user/sandbox`. If the user wants changes to the Canvas itself, update the Canvas.
 
@@ -104,7 +104,7 @@ entryPoint: workbook.xlsx
 - `mermaid`: raw Mermaid source. Before writing it, read
   `skills/canvas/references/diagrams.md`. Do not wrap it in fences.
 - `image/svg+xml`: raw SVG. Start with a real `<svg>` element.
-- `table`: a standalone well-formed Markdown table. Use one header row, one separator row, then data rows. Keep every row rectangular: the separator row and each data row must have exactly the same number of cells as the header row. Do not add prose before or after the table.
+- `table`: a standalone editable table with at most 50 data rows, authored as Markdown rather than used as a wrapper for a CSV file. For larger CSVs or datasets, create the complete file with computation tools and surface it through Artifacts. Use one header row, one separator row, then data rows. Keep every row rectangular: the separator row and each data row must have exactly the same number of cells as the header row. Do not add prose before or after the table.
 - `spreadsheet`: a real XLSX workbook. Use `type: spreadsheet`, not `type: table`, CSV, JSON, or Markdown table. To surface an existing workbook unchanged, copy it to the Canvas entry point and write its metadata; never move or recreate the source, and do not load `data-analysis`. Use `data-analysis` only to create, modify, inspect, or verify workbook content.
 
 ## Create Or Edit
