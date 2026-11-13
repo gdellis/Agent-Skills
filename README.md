@@ -79,7 +79,7 @@ Each folder is one skill, defined by its `SKILL.md` file (the instructions loade
 | [`mistral-self-knowledge`](./mistral-self-knowledge/) | Mistral AI and Vibe (formerly Le Chat): how to use Vibe (what it can do, where a feature or setting is, desktop and mobile apps, interface language, voice, files, imag... |
 | [`proofread-text`](./proofread-text/) | Load this skill when the user wants text proofread and cleaned up — fixing typos, spelling, punctuation, grammar, and broken formatting (weird line breaks, missing cap... |
 | [`research-synthesis`](./research-synthesis/) | Use this skill when the user has multiple sources, notes, files, or search results and wants them synthesized into a structured brief, comparison, or recommendation. |
-| [`rich-ui`](./rich-ui/) | Always use this skill when an inline UI component or a visual answer would be clearer than a text-only answer, regardless of the user's language.\nAvailable components... |
+| [`rich-ui`](./rich-ui/) | Always use this skill when an inline UI component or a visual answer would be clearer than a text-only answer, regardless of the user's language. Available components... |
 | [`sanitize-knowledge`](./sanitize-knowledge/) | Sanitize Personal Knowledge by finding unsafe, stale, conflicting, duplicated, poorly organized, or non-reusable content and proposing careful fixes. |
 | [`sherlock-freud-mind-model`](./sherlock-freud-mind-model/) | Use this skill when the user shares text or dialogue produced by or about a person and wants an evidence-based psychological model of that subject — personality struct... |
 | [`skill-creator`](./skill-creator/) | Load this skill before creating, updating, or deleting Skills, or whenever you plan to modify your own Skill files under skills/. |
@@ -175,6 +175,10 @@ The CLI supports 75+ agents in total; see its [supported agents list](https://gi
 ### Portability note
 
 Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, `knowledge-*`, `build-*`, `sanitize-knowledge`, `discover-knowledge`, `mistral-self-knowledge`, and `vibe-work-onboarding` reference Vibe-specific features (Canvas files, connectors, Personal Knowledge) and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain Agent Skills markdown and work in any compatible coding agent.
+
+## Credits
+
+A large portion of these skills are converted from the patterns in [Daniel Miessler's Fabric](https://github.com/danielmiessler/fabric) project. The original pattern definitions are worth a look on their own.
 
 ## Notes
 
