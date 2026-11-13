@@ -37,7 +37,7 @@ npx skills add gdellis/Agent-Skills
 
 You will be prompted to pick the skills and the agents to install them for. Skills install into the current project by default; add `-g` to make them available across all your projects.
 
-Because this repository is private, the CLI uses your existing Git credentials. Any of these works:
+The repository is public, so no credentials are needed to install. If you do hit GitHub's anonymous rate limits, any of these works:
 
 ```bash
 gh auth login                 # GitHub CLI (tried after normal git credentials)
