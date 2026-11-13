@@ -178,7 +178,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 
 ## Credits
 
-A large portion of these skills are converted from the patterns in [Daniel Miessler's Fabric](https://github.com/danielmiessler/fabric) project. The original pattern definitions are worth a look on their own.
+A large portion of these skills are converted from the [patterns](https://github.com/danielmiessler/Fabric/tree/main/data/patterns) in [Daniel Miessler's Fabric](https://github.com/danielmiessler/Fabric) project. The original pattern definitions are worth a look on their own.
 
 ## Notes
 
