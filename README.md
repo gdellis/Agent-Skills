@@ -4,6 +4,12 @@
 
 A snapshot of my personal Vibe skills library (91 skills, synced November 13, 2026).
 
+**Where to start:** Using a coding agent (Claude Code, OpenCode, Codex, …) or comfortable in a terminal? Skip ahead to [Installing into a coding agent](#installing-into-a-coding-agent). Otherwise, start with [Using a skill in a chat assistant](#using-a-skill-in-a-chat-assistant-no-coding-required).
+
+## Credits
+
+A large portion of these skills are converted from the [patterns](https://github.com/danielmiessler/Fabric/tree/main/data/patterns) in [Daniel Miessler's Fabric](https://github.com/danielmiessler/Fabric) project. The original pattern definitions are worth a look on their own.
+
 ## Structure
 
 Each skill is a folder containing its `SKILL.md` file (the instructions loaded when the skill is used). Some skills also include `references/` support files, scripts, or quick-start guides.
@@ -23,6 +29,39 @@ Skills live under `skills/<category>/<skill>/` — the catalog layout supported 
 | [`meta/`](./skills/meta/) | Skill creation, prompt structuring, tagging, and other meta tooling |
 | [`tools/`](./skills/tools/) | Utility tools — fetching and converting content |
 
+## Using a skill in a chat assistant (no coding required)
+
+Most chat assistants can open web links, so you can hand a skill straight to ChatGPT, Claude, or Gemini and let it do the work. Copy this, swap in the skill you want (paths are in the tables below), and paste it into a chat:
+
+````text
+Fetch the Agent Skill at this URL and follow it for the rest of this conversation:
+
+https://raw.githubusercontent.com/gdellis/Agent-Skills/main/skills/<category>/<skill>/SKILL.md
+
+For example: https://raw.githubusercontent.com/gdellis/Agent-Skills/main/skills/summarization/summarize/SKILL.md
+
+If you can't open URLs, say so and I'll paste the skill's contents instead.
+````
+
+If the assistant can't open URLs, open the skill's raw `SKILL.md` in your browser (click a skill below, then its `SKILL.md`), copy everything, and paste it after this line instead:
+
+````text
+Follow these skill instructions for the rest of this conversation:
+````
+
+To make a skill stick instead of pasting it every chat:
+
+- **Claude** — Customize → Skills → **+** → Create → upload a ZIP containing the skill folder (SKILL.md at the root of the ZIP). Or paste the skill text into a Project's instructions.
+- **ChatGPT** — if your plan offers Skills (Plugins → Skills → Create → Upload), upload the ZIP there; otherwise paste the skill text into a Project's instructions or your custom instructions.
+- **Gemini** — Skills → Create → paste the skill's name, description, and instructions from its `SKILL.md`.
+
+To get the ZIP/folder onto your computer: click **Code → Download ZIP** at the top of this repository, unzip it, and compress just the one skill folder you want (e.g. `skills/summarization/summarize/`) into a new ZIP.
+
+Notes:
+
+- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `vibe/`, `knowledge/`, `tools/`, and `data-analysis` expect a coding agent with a file system and won't do much in a plain chat.
+- Chat assistants apply skills as instructions, not as runnable code — skills that rely on scripts or a Python environment won't execute there.
+
 ## Installing into a coding agent
 
 These folders follow the open [Agent Skills](https://agentskills.io) standard, so they work with any compatible agent.
@@ -36,14 +75,6 @@ npx skills add gdellis/Agent-Skills
 ```
 
 You will be prompted to pick the skills and the agents to install them for. Skills install into the current project by default; add `-g` to make them available across all your projects.
-
-The repository is public, so no credentials are needed to install. If you do hit GitHub's anonymous rate limits, any of these works:
-
-```bash
-gh auth login                 # GitHub CLI (tried after normal git credentials)
-# or a configured git credential helper / SSH key
-# or export GITHUB_TOKEN=ghp_xxx   # for GitHub API access
-```
 
 Useful variants:
 
@@ -96,10 +127,6 @@ The CLI supports 75+ agents in total; see its [supported agents list](https://gi
 ### Portability note
 
 Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, `knowledge-*`, `build-*`, `sanitize-knowledge`, `discover-knowledge`, `mistral-self-knowledge`, and `vibe-work-onboarding` reference Vibe-specific features (Canvas files, connectors, Personal Knowledge) and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain Agent Skills markdown and work in any compatible coding agent.
-
-## Credits
-
-A large portion of these skills are converted from the [patterns](https://github.com/danielmiessler/Fabric/tree/main/data/patterns) in [Daniel Miessler's Fabric](https://github.com/danielmiessler/Fabric) project. The original pattern definitions are worth a look on their own.
 
 ## Notes
 
