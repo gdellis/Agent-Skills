@@ -1,5 +1,7 @@
 # Agent Skills Library
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A snapshot of my personal Vibe skills library (91 skills, synced November 13, 2026).
 
 ## Structure
@@ -20,6 +22,89 @@ Skills live under `skills/<category>/<skill>/` — the catalog layout supported 
 | [`vibe/`](./skills/vibe/) | Vibe platform skills — Canvas, artifacts, rich UI, Vibe onboarding |
 | [`meta/`](./skills/meta/) | Skill creation, prompt structuring, tagging, and other meta tooling |
 | [`tools/`](./skills/tools/) | Utility tools — fetching and converting content |
+
+## Installing into a coding agent
+
+These folders follow the open [Agent Skills](https://agentskills.io) standard, so they work with any compatible agent.
+
+### Option 1: `npx skills` CLI (recommended)
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI (requires Node.js 22.20+) installs skills into whichever coding agents you use. Run it from your project:
+
+```bash
+npx skills add gdellis/Agent-Skills
+```
+
+You will be prompted to pick the skills and the agents to install them for. Skills install into the current project by default; add `-g` to make them available across all your projects.
+
+Because this repository is private, the CLI uses your existing Git credentials. Any of these works:
+
+```bash
+gh auth login                 # GitHub CLI (tried after normal git credentials)
+# or a configured git credential helper / SSH key
+# or export GITHUB_TOKEN=ghp_xxx   # for GitHub API access
+```
+
+Useful variants:
+
+```bash
+# List everything in the repo without installing
+npx skills add gdellis/Agent-Skills --list
+
+# Install one skill for one agent
+npx skills add gdellis/Agent-Skills --skill summarize -a claude-code
+
+# Install everything, everywhere, no prompts
+npx skills add gdellis/Agent-Skills --all
+
+# Install one skill globally (all projects) for Claude Code and OpenCode
+npx skills add gdellis/Agent-Skills --skill improve-writing -g -a claude-code -a opencode
+
+# Install from a direct path to a single skill in the repo
+npx skills add https://github.com/gdellis/Agent-Skills/tree/main/skills/summarization/summarize
+```
+
+Other handy commands: `npx skills list` (what is installed), `npx skills check` (look for updates), `npx skills update`, `npx skills remove`.
+
+### Option 2: Manual install
+
+Clone the repo and copy (or symlink) the skill folders you want into your agent's skills directory:
+
+```bash
+git clone git@github.com:gdellis/Agent-Skills.git
+mkdir -p .claude/skills
+cp -r Agent-Skills/skills/summarization/summarize .claude/skills/
+# or, to keep them linked to the repo:
+ln -s "$(pwd)/Agent-Skills/skills/summarization/summarize" .claude/skills/summarize
+```
+
+Skill folder locations for common agents:
+
+| Agent | Project path | Global path |
+| --- | --- | --- |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| OpenCode | `.agents/skills/` | `~/.config/opencode/skills/` |
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Pi | `.agents/skills/` | `~/.agents/skills/` |
+| Cursor | `.agents/skills/` | `~/.cursor/skills/` |
+| Gemini CLI | `.agents/skills/` | `~/.gemini/skills/` |
+| GitHub Copilot | `.agents/skills/` | `~/.copilot/skills/` |
+| Windsurf | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
+
+The CLI supports 75+ agents in total; see its [supported agents list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+
+### Portability note
+
+Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, `knowledge-*`, `build-*`, `sanitize-knowledge`, `discover-knowledge`, `mistral-self-knowledge`, and `vibe-work-onboarding` reference Vibe-specific features (Canvas files, connectors, Personal Knowledge) and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain Agent Skills markdown and work in any compatible coding agent.
+
+## Credits
+
+A large portion of these skills are converted from the [patterns](https://github.com/danielmiessler/Fabric/tree/main/data/patterns) in [Daniel Miessler's Fabric](https://github.com/danielmiessler/Fabric) project. The original pattern definitions are worth a look on their own.
+
+## Notes
+
+- Auto-generated runtime bundles (Python environments under `skills/analysis/data-analysis/library/.bundled`) are intentionally excluded; only the portable skill definitions and support files are included.
+- To restore into Vibe, copy each `skills/<category>/<skill>/` folder back into Vibe's flat skills directory (drop the category level).
 
 ## Skills
 
@@ -163,86 +248,3 @@ Skills live under `skills/<category>/<skill>/` — the catalog layout supported 
 | Skill | Description |
 | --- | --- |
 | [`youtube-transcript`](./skills/tools/youtube-transcript/) | Load this skill when the user wants to extract, download, or generate a transcript from a YouTube video (captions, subtitles, or a full text transcript with or without... |
-
-## Installing into a coding agent
-
-These folders follow the open [Agent Skills](https://agentskills.io) standard, so they work with any compatible agent.
-
-### Option 1: `npx skills` CLI (recommended)
-
-The [`skills`](https://github.com/vercel-labs/skills) CLI (requires Node.js 22.20+) installs skills into whichever coding agents you use. Run it from your project:
-
-```bash
-npx skills add gdellis/Agent-Skills
-```
-
-You will be prompted to pick the skills and the agents to install them for. Skills install into the current project by default; add `-g` to make them available across all your projects.
-
-Because this repository is private, the CLI uses your existing Git credentials. Any of these works:
-
-```bash
-gh auth login                 # GitHub CLI (tried after normal git credentials)
-# or a configured git credential helper / SSH key
-# or export GITHUB_TOKEN=ghp_xxx   # for GitHub API access
-```
-
-Useful variants:
-
-```bash
-# List everything in the repo without installing
-npx skills add gdellis/Agent-Skills --list
-
-# Install one skill for one agent
-npx skills add gdellis/Agent-Skills --skill summarize -a claude-code
-
-# Install everything, everywhere, no prompts
-npx skills add gdellis/Agent-Skills --all
-
-# Install one skill globally (all projects) for Claude Code and OpenCode
-npx skills add gdellis/Agent-Skills --skill improve-writing -g -a claude-code -a opencode
-
-# Install from a direct path to a single skill in the repo
-npx skills add https://github.com/gdellis/Agent-Skills/tree/main/skills/summarization/summarize
-```
-
-Other handy commands: `npx skills list` (what is installed), `npx skills check` (look for updates), `npx skills update`, `npx skills remove`.
-
-### Option 2: Manual install
-
-Clone the repo and copy (or symlink) the skill folders you want into your agent's skills directory:
-
-```bash
-git clone git@github.com:gdellis/Agent-Skills.git
-mkdir -p .claude/skills
-cp -r Agent-Skills/skills/summarization/summarize .claude/skills/
-# or, to keep them linked to the repo:
-ln -s "$(pwd)/Agent-Skills/skills/summarization/summarize" .claude/skills/summarize
-```
-
-Skill folder locations for common agents:
-
-| Agent | Project path | Global path |
-| --- | --- | --- |
-| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
-| OpenCode | `.agents/skills/` | `~/.config/opencode/skills/` |
-| Codex | `.agents/skills/` | `~/.agents/skills/` |
-| Pi | `.agents/skills/` | `~/.agents/skills/` |
-| Cursor | `.agents/skills/` | `~/.cursor/skills/` |
-| Gemini CLI | `.agents/skills/` | `~/.gemini/skills/` |
-| GitHub Copilot | `.agents/skills/` | `~/.copilot/skills/` |
-| Windsurf | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
-
-The CLI supports 75+ agents in total; see its [supported agents list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
-
-### Portability note
-
-Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, `knowledge-*`, `build-*`, `sanitize-knowledge`, `discover-knowledge`, `mistral-self-knowledge`, and `vibe-work-onboarding` reference Vibe-specific features (Canvas files, connectors, Personal Knowledge) and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain Agent Skills markdown and work in any compatible coding agent.
-
-## Credits
-
-A large portion of these skills are converted from the [patterns](https://github.com/danielmiessler/Fabric/tree/main/data/patterns) in [Daniel Miessler's Fabric](https://github.com/danielmiessler/Fabric) project. The original pattern definitions are worth a look on their own.
-
-## Notes
-
-- Auto-generated runtime bundles (Python environments under `skills/analysis/data-analysis/library/.bundled`) are intentionally excluded; only the portable skill definitions and support files are included.
-- To restore into Vibe, copy each `skills/<category>/<skill>/` folder back into Vibe's flat skills directory (drop the category level).
