@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A snapshot of my personal Vibe skills library (85 skills, synced November 14, 2026).
+A snapshot of my personal skills library (76 skills, synced November 14, 2026).
 
 **Where to start:** Using a coding agent (Claude Code, OpenCode, Codex, …) or comfortable in a terminal? Skip ahead to [Installing into a coding agent](#installing-into-a-coding-agent). Otherwise, start with [Using a skill in a chat assistant](#using-a-skill-in-a-chat-assistant-no-coding-required).
 
@@ -24,7 +24,6 @@ Skills live under `skills/<category>/<skill>/` — the catalog layout supported 
 | [`writing/`](./skills/writing/) | Create and refine written content — essays, emails, tweets, LaTeX, blog posts, stories |
 | [`learning/`](./skills/learning/) | Study helpers — flashcards, quizzes, mnemonics, reading plans, explanations |
 | [`research/`](./skills/research/) | Source-backed research and multi-source synthesis |
-| [`knowledge/`](./skills/knowledge/) | Vibe Personal Knowledge — set up, enrich, query, and clean up a knowledge base |
 | [`meta/`](./skills/meta/) | Skill creation, prompt structuring, tagging, and other meta tooling |
 | [`tools/`](./skills/tools/) | Utility tools — fetching and converting content |
 
@@ -58,7 +57,7 @@ To get the files onto your computer: click **Code → Download ZIP** at the top 
 
 Notes:
 
-- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `knowledge/`, `tools/`, and `data-analysis` expect a coding agent with a file system and won't do much in a plain chat.
+- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `tools/` and `data-analysis` expect a coding agent with a file system and won't do much in a plain chat.
 - Chat assistants apply skills as instructions, not as runnable code — skills that rely on scripts or a Python environment won't execute there.
 
 ## Installing into a coding agent
@@ -125,12 +124,11 @@ The CLI supports 75+ agents in total; see its [supported agents list](https://gi
 
 ### Portability note
 
-The skills in `knowledge/` (Personal Knowledge, connectors, `userLibrary`) reference Vibe-specific features and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain markdown that works in any compatible coding agent.
+All remaining skills are plain markdown that works in any compatible coding agent; `data-analysis` also expects a prepared Python environment.
 
 ## Notes
 
 - Auto-generated runtime bundles (Python environments under `skills/analysis/data-analysis/library/.bundled`) are intentionally excluded; only the portable skill definitions and support files are included.
-- To restore into Vibe, copy each `skills/<category>/<skill>/` folder back into Vibe's flat skills directory (drop the category level).
 
 ## Skills
 
@@ -232,20 +230,6 @@ The skills in `knowledge/` (Personal Knowledge, connectors, `userLibrary`) refer
 | --- | --- |
 | [`deep-research`](./skills/research/deep-research/) | Use this when you ask for thorough research, source-backed synthesis, market or technical landscape analysis, or an evidence-based brief. |
 | [`research-synthesis`](./skills/research/research-synthesis/) | Use this when you have multiple sources, notes, files, or search results and want them synthesized into a structured brief, comparison, or recommendation. |
-
-### `knowledge/` — Vibe Personal Knowledge — set up, enrich, query, and clean up a personal knowledge base.
-
-| Skill | Description |
-| --- | --- |
-| [`build-knowledge-from-connectors`](./skills/knowledge/build-knowledge-from-connectors/) | Set up or enrich Personal Knowledge from connected Notion, Slack, Gmail, Google Drive, Outlook, and SharePoint sources. |
-| [`build-my-knowledge`](./skills/knowledge/build-my-knowledge/) | Internal connected-source Knowledge setup across Notion, Slack, Gmail, Google Drive, Outlook, and SharePoint. |
-| [`create-skill-from-knowledge`](./skills/knowledge/create-skill-from-knowledge/) | Turn a repeatable workflow already supported by Personal Knowledge into a reusable Skill. |
-| [`discover-knowledge`](./skills/knowledge/discover-knowledge/) | Explain what Knowledge is and how it helps through a short save, recall, and cleanup demo, then offer to build your Knowledge. |
-| [`interview-my-knowledge`](./skills/knowledge/interview-my-knowledge/) | Internal interview phase of Knowledge onboarding. |
-| [`knowledge-mutations`](./skills/knowledge/knowledge-mutations/) | Create, update, or delete durable Personal Knowledge. |
-| [`knowledge-onboarding`](./skills/knowledge/knowledge-onboarding/) | Onboard or broadly enrich your Knowledge Base by demonstrating its value through a short adaptive interview. |
-| [`sanitize-knowledge`](./skills/knowledge/sanitize-knowledge/) | Sanitize Personal Knowledge by finding unsafe, stale, conflicting, duplicated, poorly organized, or non-reusable content and proposing careful fixes. |
-| [`userLibrary`](./skills/knowledge/userLibrary/) | User Library — user-curated collections of uploaded documents indexed for semantic search. |
 
 ### `meta/` — Skill creation, prompt structure, tagging, and other meta tooling.
 
