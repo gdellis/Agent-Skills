@@ -1,5 +1,7 @@
 # Agent Skills Library
 
+![Agent Skills Library banner](assets/readme-banner.png)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A snapshot of my personal skills library (75 skills, synced November 14, 2026).
