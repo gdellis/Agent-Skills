@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A snapshot of my personal skills library (76 skills, synced November 14, 2026).
+A snapshot of my personal skills library (75 skills, synced November 14, 2026).
 
 **Where to start:** Using a coding agent (Claude Code, OpenCode, Codex, …) or comfortable in a terminal? Skip ahead to [Installing into a coding agent](#installing-into-a-coding-agent). Otherwise, start with [Using a skill in a chat assistant](#using-a-skill-in-a-chat-assistant-no-coding-required).
 
@@ -57,7 +57,7 @@ To get the files onto your computer: click **Code → Download ZIP** at the top 
 
 Notes:
 
-- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `tools/` and `data-analysis` expect a coding agent with a file system (and a Python environment, for `data-analysis`) and won't do much in a plain chat.
+- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `tools/` expects a coding agent with a file system and won't do much in a plain chat.
 - Chat assistants apply skills as instructions, not as runnable code — skills that rely on scripts or a Python environment won't execute there.
 
 ## Installing into a coding agent
@@ -124,11 +124,10 @@ The CLI supports 75+ agents in total; see its [supported agents list](https://gi
 
 ### Portability note
 
-All remaining skills are plain markdown that works in any compatible coding agent; `data-analysis` additionally needs Python with the pinned dependencies installed (see its `python/library/bundles/requirements.txt`).
+All remaining skills are plain markdown that works in any compatible coding agent.
 
 ## Notes
 
-- `skills/analysis/data-analysis/` ships only definitions, scripts, and a pinned requirements bundle; no prebuilt Python environment is committed — create one with `python3 -m venv` and `pip install --require-hashes -r python/library/bundles/requirements.txt`.
 
 ## Skills
 
@@ -145,7 +144,6 @@ All remaining skills are plain markdown that works in any compatible coding agen
 | [`capture-thinkers-work`](./skills/analysis/capture-thinkers-work/) | Load this when you name a philosopher, notable figure, thinker, writer, author, or philosophy and want a structured profile of what they/it taught — encap... |
 | [`challenge-my-thinking`](./skills/analysis/challenge-my-thinking/) | Use this when you want to pressure-test your thinking. |
 | [`check-falsifiability`](./skills/analysis/check-falsifiability/) | Load this when you want to know whether a claim, definition, framework, or argument is falsifiable — can it be proven wrong? |
-| [`data-analysis`](./skills/analysis/data-analysis/) | Use this for substantive computation, data analysis and transformation, mathematical or statistical modeling, simulation, and optimization, with Python (pandas, Nump... |
 | [`deconstructive-lens`](./skills/analysis/deconstructive-lens/) | Use this when you share a text and want a Derridean or post-structuralist close reading that reveals the text's architecture — binary oppositions, hierarc... |
 | [`detect-mind-virus`](./skills/analysis/detect-mind-virus/) | Load this when you want content, proposals, ideologies, or arguments checked for manipulative reasoning patterns — ideas that spread via fear, guilt, ident... |
 | [`dialog-with-socrates`](./skills/analysis/dialog-with-socrates/) | Use this when you want a Socratic dialogue — having your beliefs examined through probing questions rather than receiving direct answers. |
