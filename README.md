@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A snapshot of my personal Vibe skills library (91 skills, synced November 13, 2026).
+A snapshot of my personal Vibe skills library (85 skills, synced November 14, 2026).
 
 **Where to start:** Using a coding agent (Claude Code, OpenCode, Codex, …) or comfortable in a terminal? Skip ahead to [Installing into a coding agent](#installing-into-a-coding-agent). Otherwise, start with [Using a skill in a chat assistant](#using-a-skill-in-a-chat-assistant-no-coding-required).
 
@@ -25,7 +25,6 @@ Skills live under `skills/<category>/<skill>/` — the catalog layout supported 
 | [`learning/`](./skills/learning/) | Study helpers — flashcards, quizzes, mnemonics, reading plans, explanations |
 | [`research/`](./skills/research/) | Source-backed research and multi-source synthesis |
 | [`knowledge/`](./skills/knowledge/) | Vibe Personal Knowledge — set up, enrich, query, and clean up a knowledge base |
-| [`vibe/`](./skills/vibe/) | Vibe platform skills — Canvas, artifacts, rich UI, Vibe onboarding |
 | [`meta/`](./skills/meta/) | Skill creation, prompt structuring, tagging, and other meta tooling |
 | [`tools/`](./skills/tools/) | Utility tools — fetching and converting content |
 
@@ -59,7 +58,7 @@ To get the files onto your computer: click **Code → Download ZIP** at the top 
 
 Notes:
 
-- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `vibe/`, `knowledge/`, `tools/`, and `data-analysis` expect a coding agent with a file system and won't do much in a plain chat.
+- The prose-style skills (analysis, extraction, summarization, writing, learning, research, most of meta) work well in chat. `knowledge/`, `tools/`, and `data-analysis` expect a coding agent with a file system and won't do much in a plain chat.
 - Chat assistants apply skills as instructions, not as runnable code — skills that rely on scripts or a Python environment won't execute there.
 
 ## Installing into a coding agent
@@ -126,7 +125,7 @@ The CLI supports 75+ agents in total; see its [supported agents list](https://gi
 
 ### Portability note
 
-Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, `knowledge-*`, `build-*`, `sanitize-knowledge`, `discover-knowledge`, `mistral-self-knowledge`, and `vibe-work-onboarding` reference Vibe-specific features (Canvas files, connectors, Personal Knowledge) and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain markdown that works in any compatible coding agent.
+The skills in `knowledge/` (Personal Knowledge, connectors, `userLibrary`) reference Vibe-specific features and only make sense inside Vibe. The rest (summarization, writing, analysis, extraction, research skills, and so on) are plain markdown that works in any compatible coding agent.
 
 ## Notes
 
@@ -247,17 +246,6 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | [`knowledge-onboarding`](./skills/knowledge/knowledge-onboarding/) | Onboard or broadly enrich your Knowledge Base by demonstrating its value through a short adaptive interview. |
 | [`sanitize-knowledge`](./skills/knowledge/sanitize-knowledge/) | Sanitize Personal Knowledge by finding unsafe, stale, conflicting, duplicated, poorly organized, or non-reusable content and proposing careful fixes. |
 | [`userLibrary`](./skills/knowledge/userLibrary/) | User Library — user-curated collections of uploaded documents indexed for semantic search. |
-
-### `vibe/` — Vibe platform skills — Canvas, artifacts, rich UI, and Vibe onboarding (only useful inside Vibe).
-
-| Skill | Description |
-| --- | --- |
-| [`artifacts`](./skills/vibe/artifacts/) | Create or publish downloadable files, and read or edit previously published artifacts. |
-| [`canvas`](./skills/vibe/canvas/) | Use this when you likely want a separately rendered artifact instead of a chat reply, explicitly mention a canvas, or want to view or edit a supported exist... |
-| [`canvas-react`](./skills/vibe/canvas-react/) | Use this when you want to build an application, a simulation, a game, or any UI that could be built with React. |
-| [`mistral-self-knowledge`](./skills/vibe/mistral-self-knowledge/) | Mistral AI and Vibe (formerly Le Chat): how to use Vibe (what it can do, where a feature or setting is, desktop and mobile apps, interface language, voice, files, imag... |
-| [`rich-ui`](./skills/vibe/rich-ui/) | Always use this when an inline UI component or a visual answer would be clearer than a text-only answer, whatever language the answer is in. Available components... |
-| [`vibe-work-onboarding`](./skills/vibe/vibe-work-onboarding/) | Run this reusable onboarding flow when you want to set up or discover Work mode, Skills, Connectors, and useful first tasks in Vibe Work. |
 
 ### `meta/` — Skill creation, prompt structure, tagging, and other meta tooling.
 
