@@ -28,7 +28,7 @@ There is no build, test suite, lint config, or package manifest. The one executa
 `README.md` is a hand-maintained catalog. When adding, removing, renaming, or re-describing a skill, update all of:
 
 1. **Count + date line** near the top: "(75 skills, synced November 14, 2026)".
-2. **The per-category table** under the matching `### \`<category>/\` (N skills)` heading — update the row *and* the `N` count. Rows are alphabetical; each description is a second-person rewrite of the frontmatter description ("Load this skill when the user wants…" → "Load this when you want…"), truncated at a word boundary with a trailing `...` so the cell stays ≤160 chars.
+2. **The per-category table** under the matching `### \`<category>/\` (N skills)` heading — update the row *and* the `N` count. Rows are alphabetical; each description is a second-person rewrite of the frontmatter description ("Load this skill when the user wants…" → "Load this when you want…"), **compressed — never truncated — to a complete sentence of ≤160 chars** (drop enumerated items rather than cutting mid-list; never end a cell with `...`).
 3. **The Structure table** (8 category rows) only if a category is added or its purpose changes.
 
 Run **`python3 scripts/check.py`** — it enforces this whole contract (counts, ordering, links, cell lengths, `name` == folder); CI runs it on PRs.

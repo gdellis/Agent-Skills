@@ -7,8 +7,8 @@ Verifies the sync contract between skills/ and README.md:
   - the README intro line "(N skills, synced ...)" matches the real count
   - the Structure table lists exactly the category directories on disk
   - each category has a "### `<category>/` (N skills)" heading matching its table
-  - table rows are alphabetical, links resolve, cells are <=160 chars,
-    truncated cells end with "..." (never the single-char "…")
+  - table rows are alphabetical, links resolve, and each description cell is a
+    complete sentence of <=160 chars that never ends in an ellipsis ("..." or "…")
   - every skill has exactly one README row and vice versa
 """
 import re
@@ -131,7 +131,8 @@ for name, cat, cell in skill_rows:
     check((ROOT / "skills" / cat / name / "SKILL.md").exists(),
           f"README link `{cat}/{name}` resolves")
     check(len(cell) <= 160, f"README cell `{name}` <= 160 chars", f"{len(cell)} chars")
-    check(not cell.endswith("…"), f"README cell `{name}` uses '...' not '…' when truncated")
+    check(not cell.endswith(("...", "…")),
+          f"README cell `{name}` is a complete sentence, no trailing ellipsis")
 for d in skill_dirs:
     check((d.parent.name, d.name) in {(c, n) for n, c, _ in skill_rows},
           f"skill `{d.parent.name}/{d.name}` has a README row")
