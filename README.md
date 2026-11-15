@@ -14,7 +14,7 @@ A large portion of these skills are converted from the [patterns](https://github
 
 Each skill is a folder containing a `SKILL.md` file — the instructions your agent loads when it uses the skill. Some skills also include `references/` files, scripts, or quick-start guides.
 
-Skills live under `skills/<category>/<skill>/` — the catalog layout supported by the [`skills` CLI](https://github.com/vercel-labs/skills), so `npx skills add gdellis/Agent-Skills` discovers them natively. Skill folder names match their `name:` frontmatter.
+Skills live under `skills/<category>/<skill>/` — the catalog layout supported by the [`skills` CLI](https://github.com/vercel-labs/skills), so `npx skills add gdellis/Agent-Skills` discovers them natively. Skill folder names are unchanged; only their location moved.
 
 | Category | Contents |
 | --- | --- |
