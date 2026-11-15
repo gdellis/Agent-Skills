@@ -178,7 +178,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | [`extract-references`](./skills/extraction/extract-references/) | Load this when you want all the references in a piece of content listed — books, papers, art, stories, literature, and other sources of learning that were... |
 | [`extract-skills`](./skills/extraction/extract-skills/) | Load this when you have a job description and want all the skills extracted and classified — output as a two-column table of skill name and hard/soft type. |
 | [`extract-song-meaning`](./skills/extraction/extract-song-meaning/) | Load this when you give a song name, lyrics, or other information about a song and want to know what the song means — a summary sentence, the meaning in d... |
-| [`extract-video-instructions`](./skills/extraction/extract-video-instructions/) | Load this when you share a video (uploaded file or link) and want clear, actionable, step-by-step written instructions extracted from it — e.g. |
+| [`extract-video-instructions`](./skills/extraction/extract-video-instructions/) | Load this when you share a video (uploaded file or link) and want clear, actionable, step-by-step written instructions extracted from it — e.g.… |
 | [`extract-wisdom`](./skills/extraction/extract-wisdom/) | Load this when you share content (podcast, talk, article, interview) and want the surprising, insightful, and interesting material extracted — ideas, insi... |
 
 ### `summarization/` — Summaries of content of any kind — articles, meetings, lectures, debates, newsletters, papers, videos.
@@ -204,7 +204,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | [`create-golden-rules`](./skills/writing/create-golden-rules/) | Load this when you have a codebase, documentation, or set of team practices and want the implicit rules extracted into clear, enforceable "golden rules" — w... |
 | [`create-story`](./skills/writing/create-story/) | Load this when you provide a psychological profile (or profiles) of one or two people — real or fictional, traits, fears, motivations, background — and wan... |
 | [`create-story-explanation`](./skills/writing/create-story-explanation/) | Load this when you have complex content (a paper, talk, article, interview) and want it transformed into a short, conversational, story-like narrative summa... |
-| [`doc-coauthoring`](./skills/writing/doc-coauthoring/) | Guide you through a structured workflow for co-authoring documentation. |
+| [`doc-coauthoring`](./skills/writing/doc-coauthoring/) | Walk through a structured workflow for co-authoring documentation. |
 | [`enrich-blog-post`](./skills/writing/enrich-blog-post/) | Load this when you have a Markdown blog post that needs enriching for static-site rendering — fixing formatting and structure, and turning ❝ symbols or NOTE-... |
 | [`humanize-writing`](./skills/writing/humanize-writing/) | Load this when you have AI-generated (or AI-sounding) text and want it rewritten to sound natural and conversational, like a real person wrote it — short se... |
 | [`improve-academic-writing`](./skills/writing/improve-academic-writing/) | Load this when you provide text that needs to be refined into professional academic or scientific writing — formal, clear, easy to understand, free of word... |
@@ -231,7 +231,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 
 | Skill | Description |
 | --- | --- |
-| [`deep-research`](./skills/research/deep-research/) | Use when you ask for thorough research, source-backed synthesis, market or technical landscape analysis, or an evidence-based brief. |
+| [`deep-research`](./skills/research/deep-research/) | Use this when you ask for thorough research, source-backed synthesis, market or technical landscape analysis, or an evidence-based brief. |
 | [`research-synthesis`](./skills/research/research-synthesis/) | Use this when you have multiple sources, notes, files, or search results and want them synthesized into a structured brief, comparison, or recommendation. |
 
 ### `knowledge/` — Vibe Personal Knowledge — set up, enrich, query, and clean up a personal knowledge base.
@@ -246,7 +246,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | [`knowledge-mutations`](./skills/knowledge/knowledge-mutations/) | Create, update, or delete durable Personal Knowledge. |
 | [`knowledge-onboarding`](./skills/knowledge/knowledge-onboarding/) | Onboard or broadly enrich your Knowledge Base by demonstrating its value through a short adaptive interview. |
 | [`sanitize-knowledge`](./skills/knowledge/sanitize-knowledge/) | Sanitize Personal Knowledge by finding unsafe, stale, conflicting, duplicated, poorly organized, or non-reusable content and proposing careful fixes. |
-| [`userLibrary`](./skills/knowledge/userLibrary/) | User Libraries — user-curated collections of uploaded documents indexed for semantic search. |
+| [`userLibrary`](./skills/knowledge/userLibrary/) | User Library — user-curated collections of uploaded documents indexed for semantic search. |
 
 ### `vibe/` — Vibe platform skills — Canvas, artifacts, rich UI, and Vibe onboarding (only useful inside Vibe).
 
@@ -256,7 +256,7 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | [`canvas`](./skills/vibe/canvas/) | Use this when you likely want a separately rendered artifact instead of a chat reply, explicitly mention a canvas, or want to view or edit a supported exist... |
 | [`canvas-react`](./skills/vibe/canvas-react/) | Use this when you want to build an application, a simulation, a game, or any UI that could be built with React. |
 | [`mistral-self-knowledge`](./skills/vibe/mistral-self-knowledge/) | Mistral AI and Vibe (formerly Le Chat): how to use Vibe (what it can do, where a feature or setting is, desktop and mobile apps, interface language, voice, files, imag... |
-| [`rich-ui`](./skills/vibe/rich-ui/) | Always use this when an inline UI component or a visual answer would be clearer than a text-only answer, whatever language you're writing in. Available components... |
+| [`rich-ui`](./skills/vibe/rich-ui/) | Always use this when an inline UI component or a visual answer would be clearer than a text-only answer, whatever language the answer is in. Available components... |
 | [`vibe-work-onboarding`](./skills/vibe/vibe-work-onboarding/) | Run this reusable onboarding flow when you want to set up or discover Work mode, Skills, Connectors, and useful first tasks in Vibe Work. |
 
 ### `meta/` — Skill creation, prompt structure, tagging, and other meta tooling.
@@ -264,8 +264,8 @@ Skills such as `canvas`, `canvas-react`, `rich-ui`, `artifacts`, `userLibrary`, 
 | Skill | Description |
 | --- | --- |
 | [`convert-to-markdown`](./skills/meta/convert-to-markdown/) | Load this when you have content in another format (HTML page, pasted article, export, messy text) and want it converted to clean Markdown — a complete, fait... |
-| [`create-fabric-pattern`](./skills/meta/create-fabric-pattern/) | Load this when you want to create a new Fabric pattern from a description of what you want to accomplish (e.g. |
-| [`create-tags`](./skills/meta/create-tags/) | Load this when you want tags/keywords extracted from text content, e.g. |
+| [`create-fabric-pattern`](./skills/meta/create-fabric-pattern/) | Load this when you want to create a new Fabric pattern from a description of what you want to accomplish (e.g.… |
+| [`create-tags`](./skills/meta/create-tags/) | Load this when you want tags/keywords extracted from text content, e.g.… |
 | [`infographic-outline-creator`](./skills/meta/infographic-outline-creator/) | Create infographic outlines and visual content structures. |
 | [`skill-creator`](./skills/meta/skill-creator/) | Load this before creating, updating, or deleting Skills, or whenever you plan to modify your own Skill files under skills/. |
 | [`structure-prompt`](./skills/meta/structure-prompt/) | Load this when you want to convert rough input, a task description, or an idea into a well-structured, production-ready AI prompt with IDENTITY, STEPS, OUT... |
